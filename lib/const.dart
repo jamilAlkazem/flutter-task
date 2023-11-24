@@ -16,8 +16,8 @@ const kStatusBarIconColor = Brightness.light;
 const grayColor = Color.fromARGB(255, 196, 196, 196);
 
 const token = 'sasjkl;cv45jjsdjf9sd92ehjfjsa';
-const domain = 'http://10.0.2.2/';
-const checkEmail = '${domain}task/api/checkEmail.php';
-const saveData = '${domain}task/api/saveData.php';
-const getdataApi = '${domain}task/api/getdataApi.php';
-const deleteDataApi = '${domain}task/api/deleteDataApi.php';
+const domain = 'https://dasdass.000webhostapp.com/';
+const checkEmail = '${domain}checkEmail.php';
+const saveData = '${domain}saveData.php';
+const getdataApi = '${domain}getdataApi.php';
+const deleteDataApi = '${domain}deleteDataApi.php';
