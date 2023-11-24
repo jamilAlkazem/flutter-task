@@ -63,9 +63,9 @@ class _HomeState extends State<Home> {
       appBar: AppBar(
         backgroundColor: kPrimaryColor,
         systemOverlayStyle: const SystemUiOverlayStyle(
-          statusBarColor: kStatusBarColor, // <-- SEE HERE
-          statusBarIconBrightness: Brightness.light, //<-- For Android SEE HERE (dark icons)
-          statusBarBrightness: Brightness.light, //<-- For iOS SEE HERE (dark icons)
+          statusBarColor: kStatusBarColor,
+          statusBarIconBrightness: Brightness.light,
+          statusBarBrightness: Brightness.light,
         ),
         title: const Text('task'),
         actions: [
