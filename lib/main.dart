@@ -1,3 +1,4 @@
+import 'package:assignment/screens/displayData.dart';
 import 'package:assignment/screens/home.dart';
 import 'package:assignment/screens/login.dart';
 import 'package:flutter/material.dart';
@@ -23,6 +24,7 @@ class MyApp extends StatelessWidget {
         '/': (context) => const Intro(),
         Login.login: (context) => const Login(),
         Home.home: (context) => const Home(),
+        DisplayData.dispalyData: (context) => const DisplayData(),
       },
     );
   }

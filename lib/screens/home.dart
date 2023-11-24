@@ -2,7 +2,9 @@
 
 import 'dart:convert';
 
+import 'package:assignment/screens/displayData.dart';
 import 'package:assignment/screens/login.dart';
+import 'package:assignment/widget/drawer.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:http/http.dart' as http;
@@ -60,6 +62,7 @@ class _HomeState extends State<Home> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      drawer: const MyDrawer(),
       appBar: AppBar(
         backgroundColor: kPrimaryColor,
         systemOverlayStyle: const SystemUiOverlayStyle(
@@ -68,13 +71,6 @@ class _HomeState extends State<Home> {
           statusBarBrightness: Brightness.light,
         ),
         title: const Text('task'),
-        actions: [
-          IconButton(
-              onPressed: () async {
-                deleteData();
-              },
-              icon: const Icon(Icons.delete))
-        ],
       ),
       body: SafeArea(
         child: Stack(
@@ -162,7 +158,7 @@ class _HomeState extends State<Home> {
                                   backgroundColor: kPrimaryColor,
                                   content: Text("data saved"),
                                 ));
-                                FocusScope.of(context).requestFocus(new FocusNode());
+                                FocusScope.of(context).requestFocus(FocusNode());
                               } else {
                                 ScaffoldMessenger.of(context).showSnackBar(const SnackBar(
                                   content: Text("some thing wrong try again"),
@@ -382,24 +378,6 @@ class _HomeState extends State<Home> {
         values['address'] = (json.decode(response.body))['address'];
         loading = false;
       });
-    }
-  }
-
-  deleteData() async {
-    final response = await http.post(
-      Uri.parse(deleteDataApi),
-      body: {'token': token, 'userId': id},
-    );
-    if (response.statusCode == 200) {
-      if (response.body == 'success') {
-        SharedPreferences sh = await SharedPreferences.getInstance();
-        await sh.remove('userId');
-        ScaffoldMessenger.of(context).showSnackBar(const SnackBar(
-          backgroundColor: kPrimaryColor,
-          content: Text("your data deleted successfuly"),
-        ));
-        Navigator.pushReplacementNamed(context, Login.login);
-      } else {}
     }
   }
 }
